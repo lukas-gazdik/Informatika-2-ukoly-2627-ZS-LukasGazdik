@@ -17,8 +17,8 @@ def vypocet_bmi(vaha_kg: float, vyska_m: float) -> float:
     if vaha_kg <= 0 or vyska_m <= 0:
         return 0.0
     
-        bmi = vaha_kg / (vyska_m ** 2)
-        return round(bmi, 2)
+    bmi = vaha_kg / (vyska_m ** 2)
+    return round(bmi, 2)
     
 
 
@@ -32,6 +32,8 @@ def kategorie_bmi(bmi: float) -> str:
 
     Pokud je bmi <= 0, vraťte "neplatna hodnota".
     """
+    if bmi <= 0:
+        return "neplatna hodnota"
     if bmi < 18.5:
         return "podvaha"
     elif bmi >= 18.5 and bmi < 25.0:
@@ -85,8 +87,9 @@ def pocet_kroku_collatz(n: int) -> int:
             n = n // 2
         else:
             n = 3 * n + 1
-            kroky +=1
-            return kroky
+        kroky+=1
+
+    return kroky
 
 
 def main():
